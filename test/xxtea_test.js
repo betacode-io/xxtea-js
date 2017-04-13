@@ -16,4 +16,17 @@ describe('XXTEA', function(){
         assert(str === decrypt_data);
     });
   });
+  describe('#decryptData()', function() {
+    it('should return decrypted data', function() {
+      var key = [1,2,3,4]
+      var encrypt_data = [3294166544,1357551160,2321673513,2182648670,4260825296]
+      var actual = XXTEA.decryptUint32Array(encrypt_data, key)
+      var expected = [1272, 1438, 368, 303, 632] 
+      assert(actual[0] === expected[0])
+      assert(actual[1] === expected[1])
+      assert(actual[2] === expected[2])
+      assert(actual[3] === expected[3])
+      assert(actual[4] === expected[4])
+    });
+  });
 });
